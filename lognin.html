@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="/tailwind/3.3.3"></script>
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container gap-3 d-flex flex-column bg-primary-subtle rounded-lg p-5 w-50 ">
+        <form action="" class="gap-3 d-flex flex-column">
+            <label for="name">Name :</label>
+            <input class="form-control" type="text" name="" id="name" placeholder="Input Name...">
+        </form>
+        <span class="cor"></span>
+        <span class="err"></span>
+        <input type="button" name="" id="click" value="click" class="btn bg-yellow-200 w-25 btn-danger">
+    </div>
+</body>
+<script>
+    document.getElementById("click").onclick= function(){
+        var Name =document.getElementById("name").value;
+        var password = /^[a-z A-Z 0-9 @#$%/]+$/;
+        if(Name.length>=6&&Name.length<=10){
+            if(Name.match(password)){
+                document.querySelector(".cor").innerHTML="correct name✔";
+                document.querySelector(".cor").style.display ="block";
+                document.querySelector(".cor").style.color ="blue";
+                document.querySelector(".err").style.display ="none";
+            }
+            else{
+                document.querySelector(".err").innerHTML="incorrect name✖";
+                document.querySelector(".err").style.display ="block";
+                document.querySelector(".err").style.color ="red";
+                document.querySelector(".cor").style.display ="none";
+            }
+        }
+        else{
+                document.querySelector(".err").innerHTML="incorrect name✖";
+                document.querySelector(".err").style.display ="block";
+                document.querySelector(".err").style.color ="red";
+                document.querySelector(".cor").style.display ="none";
+            }
+    }
+</script>
+</html>
